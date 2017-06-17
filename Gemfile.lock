@@ -1,3 +1,9 @@
+GIT
+  remote: https://github.com/codahale/bcrypt-ruby.git
+  revision: 23b0517e20e7ddf2e733c1bcdb22b0b12166f042
+  specs:
+    bcrypt (3.1.11)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -84,6 +90,7 @@ GEM
     nio4r (2.1.0)
     nokogiri (1.8.0-x86-mingw32)
       mini_portile2 (~> 2.2.0)
+    pg (0.21.0-x86-mingw32)
     public_suffix (2.0.5)
     puma (3.9.1)
     rack (2.0.3)
@@ -106,6 +113,11 @@ GEM
       nokogiri (>= 1.6)
     rails-html-sanitizer (1.0.3)
       loofah (~> 2.0)
+    rails_12factor (0.0.3)
+      rails_serve_static_assets
+      rails_stdout_logging
+    rails_serve_static_assets (0.0.5)
+    rails_stdout_logging (0.0.5)
     railties (5.1.1)
       actionpack (= 5.1.1)
       activesupport (= 5.1.1)
@@ -159,12 +171,15 @@ PLATFORMS
   x86-mingw32
 
 DEPENDENCIES
+  bcrypt!
   byebug
   capybara (~> 2.13)
   coffee-rails (~> 4.2)
   jbuilder (~> 2.5)
+  pg
   puma (~> 3.7)
   rails (~> 5.1.1)
+  rails_12factor
   sass-rails (~> 5.0)
   selenium-webdriver
   sqlite3
