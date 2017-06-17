@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Search Videos!</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    </head>
+    <body>
+        <div id="container">
+            <header>
+                <h1>Search<span>Vidz</span></h1>
+                <p>Search all Youtube videos</p>
+            </header>
+            <section>
+                <form id="search-form" name="search-form" onsubmit="return search()">
+                    <div class="fieldcontainer">
+                        <input type="search" id="query" class="search-field" placeholder="Search songs">
+                        <input type="submit" name="search-btn" id="search-btn" value="search">
+                    </div>
+                </form>
+
+                <ul id="selected"></ul>
+                <ul id="results"></ul>
+                <div id="buttons"></div>
+            </section>
+        </div>
+        <footer>
+            <p>Copyright &copy; 2017, All Rights Reserved</p>
+        </footer>
+    </body>
+</html>
+<script>
+    $('#search-form').submit(function (e) {
+        e.preventDefault();
+    });
+
+</script>
