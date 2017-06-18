@@ -2,36 +2,53 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Search Videos!</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+              integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     </head>
     <body>
-        <div id="container">
+        <div class="container">
             <header>
-                <h1>Search<span>Vidz</span></h1>
-                <p>Search all Youtube videos</p>
+                <h1 align="center" style="color: #B00100">Song<span style="color: black">Finder</span></h1>
             </header>
-            <section>
-                <form id="search-form" name="search-form" onsubmit="return search()">
-                    <div class="fieldcontainer">
-                        <input type="search" id="query" class="search-field" placeholder="Search songs">
-                        <input type="submit" name="search-btn" id="search-btn" value="search">
-                    </div>
-                </form>
+            <div align="center" style="margin-top: -10px;"><small>Search through all Youtube videos</small></div>
 
-                <ul id="selected"></ul>
-                <ul id="results"></ul>
-                <div id="buttons"></div>
+            <section style="padding-bottom: 20px;">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-offset-4 col-sm-8">
+                            <form class="form-inline" id="search-form" name="search-form" onsubmit="return search()" style="padding-top: 20px;">
+                                <div class="form-group">
+                                    <div class="col-sm-5">
+                                        <input type="search" class="form-control" id="query" class="search-field" placeholder="Search songs">
+                                    </div>
+                                </div>
+                                <button type="submit" name="search-btn" id="search-btn" class="btn btn-default">
+                                    Search
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
             </section>
+            <ul id="selected" style="width: 100%; height: 50%; display: block; white-space: nowrap; overflow: auto; "></ul>
+            <hr>
+            <ul id="results"></ul>
+            <div id="buttons"></div>
+            <footer>
+                <small>Copyright &copy; 2017 - Created by <span style="color: black">Hasan Zahid</span></small>
+            </footer>
         </div>
-        <footer>
-            <p>Copyright &copy; 2017, All Rights Reserved</p>
-        </footer>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+                integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+                crossorigin="anonymous">
+        </script>
     </body>
 </html>
 <script>
     $('#search-form').submit(function (e) {
         e.preventDefault();
     });
-
 </script>
