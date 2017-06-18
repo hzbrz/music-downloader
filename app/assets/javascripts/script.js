@@ -34,10 +34,11 @@ function search() {
     );
 }
 
+var title;
 // Build Output
 function  getOutput(item) {
     var videoId = item.id.videoId;
-    var title = item.snippet.title;
+    title = item.snippet.title;
     var channelTitle = item.snippet.channelTitle;
     var videoDate = new Date(item.snippet.publishedAt).toISOString().slice(0, 10);;
 
@@ -54,17 +55,38 @@ function  getOutput(item) {
     return output;
 }
 
+var links = [];
 function getLinks(event) {
     event.preventDefault();
     var link = $(event.target).attr("href");
+    var src = "//www.youtubeinmp3.com/fetch/?video=" + link;
+    links.push(src)
     var list_link = '<li class="link-btn" style="list-style: none; display: inline; padding-right: 10px;">' +
         '<iframe style="width:230px;height:60px;border:0;overflow:hidden;" scrolling="no" src="//www.youtubeinmp3.com/widget/button/?video='+link+'"&color=96c864></iframe>' +
         '</li>' +
         '';
+    // links.push(list_link);
     // if ($('#selected li').size() > 3) {
     //     $('#selected').empty();
     //     $('#selected').append(list_link);
     // }else {
     // }
     $('#selected').append(list_link);
+}
+
+function downloadAll(urls) {
+    var link = document.createElement('a');
+
+    link.setAttribute('download', title);
+    link.style.display = 'none';
+
+    document.body.appendChild(link);
+
+    for (var i = 0; i < urls.length; i++) {
+        link.setAttribute('href', urls[i]);
+        console.log(link)
+        link.click();
+    }
+
+    document.body.removeChild(link);
 }
