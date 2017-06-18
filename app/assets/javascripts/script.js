@@ -14,6 +14,7 @@ function search() {
             q: q,
             type: 'video',
             videoCategoryId: '10',
+            videoDuration: 'medium',
             key: 'AIzaSyA5C0v6bbZJUlDDycVhkpOlP20IqwjlNEs'},
             function (data){
                 var nextPageToken = data.nextPageToken;
@@ -44,7 +45,7 @@ function  getOutput(item) {
     // Build output string
     var output = '<li style="list-style: none; border-bottom: 2px dashed;">' +
         '<div class="list-right" style="padding-bottom: 20px;">' +
-        '<h5><a href="https://www.youtube.com/watch?v='+videoId+'" onclick="getLinks(event)">'+title+'</a></h5>' +
+        '<h5><a <a href="//www.youtubeinmp3.com/fetch/?video=https://www.youtube.com/watch?v='+videoId+'" style="text-decoration:none;color:#1B94D6;">'+title+'</a></h5>' +
         '<small>By <span class="cTitle" style="color: rgba(171,21,0,0.98);">'+channelTitle+'' +
         '</span> on '+videoDate+'</small>' +
         '</div>' +
@@ -52,19 +53,4 @@ function  getOutput(item) {
         '';
 
     return output;
-}
-
-function getLinks(event) {
-    event.preventDefault();
-    var link = $(event.target).attr("href");
-    var list_link = '<li style="list-style: none; display: inline; padding-right: 10px;">' +
-            '<iframe style="width:230px;height:60px;border:0;overflow:hidden;" scrolling="no" src="//www.youtubeinmp3.com/widget/button/?video='+link+'"&color=96c864></iframe>' +
-            '</li>' +
-            '';
-    // if ($('#selected li').size() > 3) {
-    //     $('#selected').empty();
-    //     $('#selected').append(list_link);
-    // }else {
-    // }
-    $('#selected').append(list_link);
 }
