@@ -10,8 +10,10 @@ function search() {
     $.get(
         "https://www.googleapis.com/youtube/v3/search", {
             part: 'snippet, id',
+            maxResults: 50,
             q: q,
             type: 'video',
+            videoCategoryId: '10',
             key: 'AIzaSyA5C0v6bbZJUlDDycVhkpOlP20IqwjlNEs'},
             function (data){
                 var nextPageToken = data.nextPageToken;
