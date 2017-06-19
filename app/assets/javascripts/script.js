@@ -13,7 +13,6 @@ function search() {
             maxResults: 50,
             q: q,
             type: 'video',
-            videoCategoryId: '10',
             key: 'AIzaSyA5C0v6bbZJUlDDycVhkpOlP20IqwjlNEs'},
             function (data){
                 var nextPageToken = data.nextPageToken;
@@ -46,6 +45,7 @@ function  getOutput(item) {
     var output = '<li style="list-style: none; border-bottom: 2px dashed;">' +
         '<div class="list-right" style="padding-bottom: 20px;">' +
         '<h5><a href="https://www.youtube.com/watch?v='+videoId+'" onclick="getLinks(event)">'+title+'</a></h5>' +
+        // '<a href="//www.youtubeinmp3.com/fetch/?video=https://www.youtube.com/watch?v='+videoId+'">'+title+'</a>' +
         '<small>By <span class="cTitle" style="color: rgba(171,21,0,0.98);">'+channelTitle+'' +
         '</span> on '+videoDate+'</small>' +
         '</div>' +
@@ -59,19 +59,34 @@ var links = [];
 function getLinks(event) {
     event.preventDefault();
     var link = $(event.target).attr("href");
-    var src = "//www.youtubeinmp3.com/fetch/?video=" + link;
+    var src = "//www.youtubeinmp3.com/fetch/?video="+link;
     links.push(src)
     var list_link = '<li class="link-btn" style="list-style: none; display: inline; padding-right: 10px;">' +
-        '<iframe style="width:230px;height:60px;border:0;overflow:hidden;" scrolling="no" src="//www.youtubeinmp3.com/widget/button/?video='+link+'"&color=96c864></iframe>' +
+        '<iframe style="width:180px;height:50px;border:0;overflow:hidden;" scrolling="no" ' +
+        'src="//www.youtubeinmp3.com/widget/button/?video='+link+'"&color=96c864></iframe>' +
+        // '<span id="close" onclick="this.parentNode.parentNode.removeChild(this.parentNode); return false;" style="color: #B00100">x</span>' +
         '</li>' +
         '';
     // links.push(list_link);
-    // if ($('#selected li').size() > 3) {
-    //     $('#selected').empty();
-    //     $('#selected').append(list_link);
-    // }else {
-    // }
+    var download_msg = '(download all selected links' +
+            '<small> *some links might be broken*)</small>' +
+            '';
+
     $('#selected').append(list_link);
+    if ($('#selected li').size() > 3) {
+        $('#dl-btn').show();
+    }
+
+    // if ($('#selected li').size() > 3) {
+    //     $('#clear-btn').show();
+    //     $('#clear-btn').on('click', function () {
+    //         $('#selected').empty();
+    //     });
+    // }
+
+    if ($('#selected li').size() === 4) {
+        $('#dl-msg').append(download_msg);
+    }
 }
 
 function downloadAll(urls) {
