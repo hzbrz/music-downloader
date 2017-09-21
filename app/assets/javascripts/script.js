@@ -59,11 +59,11 @@ var links = [];
 function getLinks(event) {
     event.preventDefault();
     var link = $(event.target).attr("href");
-    var src = "//www.youtubeinmp3.com/fetch/?video="+link;
+    var src = "//www.convertmp3.io/fetch/?video="+link;
     links.push(src)
     var list_link = '<li class="link-btn" style="list-style: none; display: inline; padding-right: 10px;">' +
-        '<iframe style="width:180px;height:50px;border:0;overflow:hidden;" scrolling="no" ' +
-        '//www.convertmp3.io/widget/button/?video='+link+'"&color=96c864></iframe>' +
+        '<iframe style="width:180px;height:50px;border:0;overflow:hidden;" scrolling="no"' +
+        'src="//www.convertmp3.io/widget/button/?video='+link+'"&color=96c864></iframe>' +
         // '<span id="close" onclick="this.parentNode.parentNode.removeChild(this.parentNode); return false;" style="color: #B00100">x</span>' +
         '</li>' +
         '';
