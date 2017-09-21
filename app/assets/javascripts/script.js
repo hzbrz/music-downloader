@@ -63,7 +63,7 @@ function getLinks(event) {
     links.push(src)
     var list_link = '<li class="link-btn" style="list-style: none; display: inline; padding-right: 10px;">' +
         '<iframe style="width:180px;height:50px;border:0;overflow:hidden;" scrolling="no" ' +
-        'src="//www.youtubeinmp3.com/widget/button/?video='+link+'"&color=96c864></iframe>' +
+        '//www.convertmp3.io/widget/button/?video='+link+'"&color=96c864></iframe>' +
         // '<span id="close" onclick="this.parentNode.parentNode.removeChild(this.parentNode); return false;" style="color: #B00100">x</span>' +
         '</li>' +
         '';
